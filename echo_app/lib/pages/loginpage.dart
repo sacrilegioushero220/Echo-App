@@ -27,13 +27,14 @@ class _LoginPageState extends State<LoginPage> {
       User? user = userCredential.user;
       if (user != null) {
         // User logged in successfully
-        // TODO: Navigate to the desired screen
+        //TODONavigate to the desired screen
 
-        Navigator.pushReplacement(
+        // ignore: use_build_context_synchronously
+        Navigator.pushReplacement/(
           context,
           MaterialPageRoute(
             builder: (context) =>
-                DoctorDashboard(), // Replace with your DoctorDashBoard page
+                const DoctorDashboard(), // Replace with your DoctorDashBoard page
           ),
         );
       } else {
@@ -42,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
     } catch (e) {
       // Handle login failure and display error message
       _showErrorSnackbar('Login failed: $e');
+      // ignore: avoid_print
       print('Login failed: $e');
     }
   }
@@ -58,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
   void _goToSignUpPage() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SignupPage()),
+      MaterialPageRoute(builder: (context) => const SignupPage()),
     );
   }
 
@@ -66,35 +68,35 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextFormField(
               controller: _usernameController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Username',
                 prefixIcon: Icon(Icons.person),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextFormField(
               controller: _passwordController,
               obscureText: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Password',
                 prefixIcon: Icon(Icons.lock),
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             ElevatedButton(
               onPressed: _loginUser,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 12),
                 child: Text(
                   'Login',
                   style: TextStyle(fontSize: 16),
@@ -105,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: _goToSignUpPage,
               // TODO: Go to the sign-up page
 
-              child: Text('Sign Up'),
+              child: const Text('Sign Up'),
             ),
           ],
         ),

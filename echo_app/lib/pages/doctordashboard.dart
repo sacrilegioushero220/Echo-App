@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
 class DoctorDashboard extends StatelessWidget {
+  const DoctorDashboard({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Doctor Dashboard'),
+        title: const Text('Doctor Dashboard'),
       ),
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(16),
-            child: Column(
+            padding: const EdgeInsets.all(16),
+            child: const Column(
               children: [
                 CircleAvatar(
                   radius: 50,
@@ -41,7 +43,7 @@ class DoctorDashboard extends StatelessWidget {
                       'Patient 2',
                       'Patient 3',
                     ]),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     _buildPatientList('Non-critical Patients', Colors.green, [
                       'Patient 4',
                       'Patient 5',
@@ -62,14 +64,14 @@ class DoctorDashboard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           color: color,
           child: Text(
             title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         SizedBox(
           height: 100,
           child: SingleChildScrollView(
@@ -77,14 +79,14 @@ class DoctorDashboard extends StatelessWidget {
             child: Row(
               children: patients
                   .map((patient) => Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: Column(
                           children: [
-                            CircleAvatar(
+                            const CircleAvatar(
                               backgroundImage:
                                   AssetImage('assets/patient_avatar.png'),
                             ),
-                            SizedBox(height: 4),
+                            const SizedBox(height: 4),
                             Text(patient),
                           ],
                         ),
